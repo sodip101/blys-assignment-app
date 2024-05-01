@@ -1,4 +1,6 @@
 import {
+  ActivityIndicator,
+  Alert,
   ImageBackground,
   StyleSheet,
   Text,
@@ -7,13 +9,30 @@ import {
 } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
 
+import { API } from "../api";
 import { Images } from "../../assets";
+import { useState } from "react";
 
 export default function LockedScreen({
   handleVerification,
 }: {
-  handleVerification: () => void;
+  handleVerification: (isVerified: boolean) => void;
 }) {
+  const [otpText, setOtpText] = useState<string>("");
+  const [isVerifying, setVerifying] = useState<boolean>(false);
+
+  const onVerifyPress = async () => {
+    setVerifying(true);
+    const resp = await API.verifyCode(otpText);
+    setVerifying(false);
+
+    if (resp?.success) {
+      handleVerification(resp.success);
+    } else {
+      Alert.alert("Error", resp?.error?.message ?? "Your code is invalid");
+    }
+  };
+
   return (
     <ImageBackground source={Images.lockedBackground} style={styles.container}>
       <View style={styles.textContainer}>
@@ -28,8 +47,9 @@ export default function LockedScreen({
         numberOfDigits={6}
         focusColor="blue"
         focusStickBlinkingDuration={500}
-        onTextChange={(text) => console.log(text)}
-        onFilled={(text) => console.log(`OTP is ${text}`)}
+        onTextChange={(text) => {
+          setOtpText(text);
+        }}
         textInputProps={{
           accessibilityLabel: "One-Time Password",
         }}
@@ -41,8 +61,16 @@ export default function LockedScreen({
         }}
       />
 
-      <TouchableOpacity style={styles.verifyBtn} onPress={handleVerification}>
-        <Text style={styles.verifyBtnTitle}>Verify</Text>
+      <TouchableOpacity
+        disabled={otpText.length < 6 || isVerifying}
+        style={{ ...styles.verifyBtn, opacity: isVerifying ? 0.7 : 1 }}
+        onPress={onVerifyPress}
+      >
+        {isVerifying ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={styles.verifyBtnTitle}>Let me enter</Text>
+        )}
       </TouchableOpacity>
     </ImageBackground>
   );
@@ -79,6 +107,9 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 24,
     borderRadius: 8,
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   verifyBtnTitle: {
     color: "white",

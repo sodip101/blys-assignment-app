@@ -1,8 +1,21 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { Images } from "../../assets";
 
-export default function UnlockedScreen() {
+export default function UnlockedScreen({
+  handleVerification,
+}: {
+  handleVerification: (isVerified: boolean) => void;
+}) {
+  const onPressBack = () => {
+    handleVerification(false);
+  };
   return (
     <ImageBackground
       source={Images.unlockedBackground}
@@ -11,8 +24,12 @@ export default function UnlockedScreen() {
       <View style={styles.textContainer}>
         <Text style={styles.title}>Code Verified</Text>
 
-        <Text style={styles.description}>You may proceed.</Text>
+        <Text style={styles.description}>You may enter.</Text>
       </View>
+
+      <TouchableOpacity style={styles.verifyBtn} onPress={onPressBack}>
+        <Text style={styles.verifyBtnTitle}>I'll go back</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
@@ -22,7 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
     gap: 34,
   },
   textContainer: {
@@ -36,5 +52,15 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     color: "white",
+  },
+  verifyBtn: {
+    backgroundColor: "white",
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+  },
+  verifyBtnTitle: {
+    color: "blue",
+    fontSize: 16,
   },
 });
