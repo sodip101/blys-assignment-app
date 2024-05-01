@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 import { Images } from "../../assets";
 
@@ -21,6 +22,8 @@ export default function UnlockedScreen({
       source={Images.unlockedBackground}
       style={styles.container}
     >
+      <StatusBar backgroundColor="transparent" style="dark" />
+
       <View style={styles.textContainer}>
         <Text style={styles.title}>Code Verified</Text>
 
@@ -46,12 +49,14 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     color: "white",
+    fontWeight: "bold",
   },
   description: {
-    fontSize: 14,
+    fontSize: 16,
     color: "white",
+    fontWeight: "bold",
   },
   verifyBtn: {
     backgroundColor: "white",

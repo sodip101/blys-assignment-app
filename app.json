@@ -16,16 +16,29 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.sodipp.blysy"
+      "bundleIdentifier": "com.sodipp.blysy",
+      "runtimeVersion": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "runtimeVersion": {
+        "policy": "appVersion"
+      },
+      "package": "com.sodipp.blysy"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9d5a4a46-5fef-4685-a52b-131d84ffe8e5"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9d5a4a46-5fef-4685-a52b-131d84ffe8e5"
     }
   }
 }

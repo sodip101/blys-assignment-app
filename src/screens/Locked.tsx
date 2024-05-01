@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
+import { StatusBar } from "expo-status-bar";
 
 import { API } from "../api";
 import { Images } from "../../assets";
@@ -35,6 +36,8 @@ export default function LockedScreen({
 
   return (
     <ImageBackground source={Images.lockedBackground} style={styles.container}>
+      <StatusBar backgroundColor="transparent" style="dark" />
+
       <View style={styles.textContainer}>
         <Text style={styles.title}>Verification</Text>
 
@@ -63,7 +66,10 @@ export default function LockedScreen({
 
       <TouchableOpacity
         disabled={otpText.length < 6 || isVerifying}
-        style={{ ...styles.verifyBtn, opacity: isVerifying ? 0.7 : 1 }}
+        style={{
+          ...styles.verifyBtn,
+          opacity: otpText.length < 6 || isVerifying ? 0.8 : 1,
+        }}
         onPress={onVerifyPress}
       >
         {isVerifying ? (
