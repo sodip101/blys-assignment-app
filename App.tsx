@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { LockedScreen, UnlockedScreen } from "./src/screens";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  const [isVerified, setIsVerified] = useState<boolean>(false);
+
+  const handleVerification = () => {
+    setIsVerified((prev) => !prev);
+  };
+
+  return isVerified ? (
+    <UnlockedScreen />
+  ) : (
+    <LockedScreen handleVerification={handleVerification} />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
