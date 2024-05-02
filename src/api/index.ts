@@ -19,7 +19,6 @@ export const API = {
       body: JSON.stringify({ otpCode: code }),
     });
     const parsedRes = await res.json();
-    console.log(parsedRes);
 
     return parsedRes;
   },

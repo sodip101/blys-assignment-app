@@ -24,14 +24,18 @@ export default function LockedScreen({
   const [isVerifying, setVerifying] = useState<boolean>(false);
 
   const onVerifyPress = async () => {
-    setVerifying(true);
-    const resp = await API.verifyCode(otpText);
-    setVerifying(false);
+    try {
+      setVerifying(true);
+      const resp = await API.verifyCode(otpText);
+      setVerifying(false);
 
-    if (resp?.success === true) {
-      handleVerification(resp.success);
-    } else {
-      Alert.alert("Error", resp?.error?.message ?? "Your code is invalid");
+      if (resp?.success === true) {
+        handleVerification(resp.success);
+      } else {
+        Alert.alert("Error", resp?.error?.message ?? "Your code is invalid");
+      }
+    } catch (error) {
+      Alert.alert("Error", "An error occurred. Please try again later.");
     }
   };
 
