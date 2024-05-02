@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.sodipp.blysy",
@@ -27,6 +25,7 @@
       "runtimeVersion": {
         "policy": "appVersion"
       },
+      "softwareKeyboardLayoutMode": "pan",
       "package": "com.sodipp.blysy"
     },
     "web": {
