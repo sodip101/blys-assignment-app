@@ -1,4 +1,4 @@
-### Steps to get started with this repo:
+## Steps to get started with this repo:
 
 Step 1: Install expo-cli and eas-cli globally 📦
 
@@ -19,3 +19,7 @@ Step 4: Install project dependencies 📦
 Step 5: Start the development sever 🚀
 
 - `npx expo start`
+
+## Demo
+
+https://github.com/sodip101/blys-assignment-app/blob/main/demo.mp4
