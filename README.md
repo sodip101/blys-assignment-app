@@ -21,5 +21,5 @@ Step 5: Start the development sever 🚀
 - `npx expo start`
 
 ## Demo
+https://github.com/sodip101/blys-assignment-app/assets/49120104/282a6e10-9674-44fe-825f-2796b39d666b
 
-https://github.com/sodip101/blys-assignment-app/blob/main/demo.mp4
