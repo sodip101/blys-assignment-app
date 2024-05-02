@@ -23,3 +23,7 @@ Step 5: Start the development sever 🚀
 ## Demo
 
 https://github.com/sodip101/blys-assignment-app/blob/main/demo.mp4
+
+## Install android build
+
+https://expo.dev/accounts/sodip/projects/blysy/builds/c6443787-629a-460c-8811-eb898c477ac7
