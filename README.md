@@ -4,11 +4,11 @@ Step 1: Install expo-cli and eas-cli globally 📦
 
 Step 2: Clone the repo 📦
 
-- `git clone https://github.com/AppBoxTech/veel-app.git`
+- `git clone https://github.com/sodip101/blys-assignment-app.git`
 
 Step 3: cd into the project 📦
 
-- `cd veel-app`
+- `cd blys-assignment-app`
 
 Step 4: setup `.env` like the provided sample file
 
@@ -22,7 +22,7 @@ Step 5: Start the development sever 🚀
 
 ## Demo
 
-https://github.com/sodip101/blys-assignment-app/blob/main/demo.mp4
+https://github.com/sodip101/blys-assignment-app/assets/49120104/282a6e10-9674-44fe-825f-2796b39d666b
 
 ## Install android build
 
